@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK - Freeware</title>
+
+    <!-- Diese Zeilen kommen in den <head> Bereich, direkt unter <meta charset="..."> -->
+    <meta name="description" content="Kostenlose Freeware-Programme für Windows. Entdecke nützliche Tools für deinen Alltag – werbefrei und ohne Anmeldung direkt downloaden.">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        /* ==========================================
+           1. LAYOUT & BASIS-DESIGN
+           ========================================== */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #B6B6B4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1; 
+        }
+
+        /* ==========================================
+           2. HEADER (Jetzt linksbündig mit Logo)
+           ========================================== */
+        header {
+            /* Verlauf startet jetzt dunkel (#1a3a60) und endet in deinem Wunsch-Blau (rgb(30, 144, 255)) */
+            background: linear-gradient(135deg, #1a3a60 0%, rgb(30, 144, 255) 100%);
+            color: #fff;
+            padding: 1.5rem 0;
+            width: 100%;
+        }
+
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        header h1 {
+            margin: 0 0 0.2rem 0;
+            font-size: 1.8rem;
+        }
+
+         header p {
+            margin: 0;
+            font-size: 0.9rem;    /* Vorher 1rem – jetzt etwas kleiner und feiner */
+            color: #d1dbe5;       /* Ein leicht dezenteres Weiß-Grau, damit es edler wirkt */
+            margin-top: 0.4rem;   /* Ein klein wenig Abstand zur großen Überschrift */
+            font-weight: 300;     /* Macht die Schriftart etwas dünner, falls unterstützt */
+        }
+
+                /* ==========================================
+           2b. REQUISITEN-INFOBOX (Wichtiger Hinweis ganz oben)
+           ========================================== */
+         .info-banner {
+            background-color: #fff;
+            /* Hier werden jetzt beide Seiten blau gefärbt */
+            border-left: 5px solid rgb(30, 144, 255); 
+            border-right: 5px solid rgb(30, 144, 255); 
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+
+        .info-banner h3 {
+            margin-top: 0;
+            color: #1a3a60; /* Das edle Dunkelblau */
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-banner p {
+            margin: 0 0 1rem 0;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        /* Ein kleinerer, feinerer Button für die Installationsdatei */
+        .info-btn {
+            display: inline-block;
+            background-color: #1a3a60;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .info-btn:hover {
+            background-color: rgb(30, 144, 255); /* Wechselt zu deinem Wunsch-Blau bei Hover */
+        }
+
+                /* ==========================================
+           2c. SICHERHEITS-INFOBOX (Ganz unten unter den Karten)
+           ========================================== */
+        .security-banner {
+            background-color: #fff;
+            border-left: 5px solid #e28743;
+            border-right: 5px solid #e28743;
+            
+            /* 1. ÄNDERUNG: Innenabstand angepasst (oben/unten 1.5rem, links/rechts 2rem) */
+            padding: 1.5rem 2rem; 
+            
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            
+            /* 2. NEU: Sorgt dafür, dass der Kasten den exakt gleichen Seitenabstand hält */
+            box-sizing: border-box; 
+        }
+
+
+        .security-banner h3 {
+            margin-top: 0;
+            color: #1a3a60;
+        }
+
+        .security-banner p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin: 0 0 1rem 0;
+        }
+
+        .security-action {
+            background-color: #f8f9fa;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #2d3748;
+        }
+
+        /* Die neue Trennlinie innerhalb des Kastens */
+        .banner-divider {
+            border: 0;
+            height: 2px;
+            background-color: #cbd5e1; /* Ein feines, dezentes Grau */
+            margin: 2rem 0; /* Sorgt für gleichmäßigen Abstand nach oben und unten */
+        }
+
+        .own-interest-section {
+            /* NEU: Schiebt den gesamten Bereich ein kleines Stück nach rechts, */
+            /* damit er exakt bündig mit dem oberen Text fluchtet. */
+            padding: 0 0 0 0.5rem; 
+        }
+
+        /* Setzt den Abstand der neuen Überschrift zurück */
+        .own-interest-section h3 {
+            margin-top: 0;
+            color: #1a3a60;
+        }
+
+        /* Der Text im neuen Abschnitt */
+        .own-interest-section p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        /* ==========================================
+           3. PROGRAMM-KARTEN & BILDER
+           ========================================== */
+        .program-grid {
+            display: grid;
+            /* ÄNDERUNG: Erzwingt genau 2 Spalten auf PC-Bildschirmen */
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 2rem;
+        }
+
+                /* Sort sorgt dafür, dass es auf kleinen Bildschirmen (Handys) 1-spaltig wird */
+        @media (max-width: 768px) {
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .program-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .program-image {
+            width: 100%;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            background-color: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .program-card h2 {
+            margin: 0 0 0.5rem 0;
+            color: #1a3a60; /* Das edle Dunkelblau vom Header-Start */
+            font-size: 1.4rem;
+        }
+
+        .description {
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .meta {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            display: block;
+            text-align: center;
+            background-color: #1a3a60; /* Dunkelblau vom Header-Start */
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background-color: rgb(30, 144, 255); /* Wechselt zu deinem Wunsch-Blau bei Hover */
+        }
+
+        /* ==========================================
+           4. FOOTER (Der untere Streifen)
+           ========================================== */
+        footer {
+            background: #333;
+            color: #fff;
+            margin-top: auto; 
+            padding: 1rem 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-content p {
+            margin: 0;
+        }
+
+        .footer-links a {
+            color: #ccc; 
+            text-decoration: none;
+            margin-left: 2rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Farbwechsel für den Adminrechte-Link */
+        .admin-link {
+            color: #0b62cc; /* Startfarbe: Dein edles Dunkelblau */
+            text-decoration: underline;
+            transition: color 0.2s; /* Macht den Farbübergang schön geschmeidig */
+        }
+
+        .admin-link:hover {
+            color: rgb(30, 144, 255); /* Hoverfarbe: Dein leuchtendes Wunsch-Blau */
+        }
+
+                /* Farbwechsel für den SHA-256-Link in der Infozeile */
+        .sha-link {
+            color: #4a5568; /* Startfarbe: Ein edles, gut lesbares Dunkelgrau-Blau */
+            text-decoration: underline;
+            font-weight: 600; /* Macht die Schrift minimal kräftiger, damit sie auffällt */
+            transition: color 0.2s; /* Schöner, fließender Farbübergang */
+        }
+
+        .sha-link:hover {
+            color: rgb(30, 144, 255); /* Hoverfarbe: Dein leuchtendes Wunsch-Blau */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="images/rklogo.gif" alt="Logo">
+            </div>
+            <div class="header-text">
+                <h1>RK - Freeware</h1>
+                <p>Kostenlose, nützliche Tools für deinen Alltag – ohne Werbung, ohne Anmeldung.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+         <!-- NEU: Der Info-Kasten für die Laufzeitdateien -->
+        <section class="info-banner">
+            <h3>💡 Wichtiger Hinweis vor dem Download</h3>
+            <p>Damit meine Freeware-Programme einwandfrei auf deinem PC starten, werden diese Laufzeitdateien benötigt.<br> 
+               Du solltest vor dem testen der Programme auf jeden Fall dieses Laufzeit-Paket installieren.
+            </p>
+            <div class="meta">
+                System: Windows 7/10/11 | Größe: 15,6 MB | 
+                <a href="#" 
+                class="sha-link"
+                onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>963DF7C5CD08A9F5A52F0128376DCA9A92FC4133B2CAF842425DAECE6FFA772D</pre></div>'); return false;" 
+                title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+            </div>            
+            <a href="downloads/RK-RunTime.zip" class="info-btn">Laufzeit-Installationsdatei herunterladen</a>
+         </section>
+
+         <section class="program-grid">
+            
+            <!-- Programm 1 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rksave.png" alt="Programm 1">
+                </div>
+                <h2>RK-Save</h2>
+                <p class="description">Ein Datensicherungsprogramm mit Optionen wie Normal, Sync oder Zip und einer Log-Liste.</p>
+                <div class="meta">
+                    System: Windows 7/10/11 | Größe: 2.15 MB | 
+                    <a href="#" 
+                    class="sha-link"
+                    onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>81C3E6BF38C93AFFF4A51C5E6000366D9574B7812C8E0A92AE0BB37318ED073E</pre></div>'); return false;" 
+                    title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                
+                <a href="downloads/RK-Save.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>
+
+            <!-- Programm 2 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rkclean.png" alt="Programm 2">
+                </div>
+                <h2>RK-Clean</h2>
+                <p class="description">
+                    Dieses Tool reinigt die speziellen Datenmüll-Ordner und optimiert den Autostart.<br>
+                    ❗Für die Autostart-Bearbeitung werden <a href="adminrechte.html" class="admin-link">Adminrechte</a> benötigt.
+                </p>
+                <div class="meta">
+                    System: Windows 7/10/11 | Größe: 1 MB | 
+                    <a href="#" 
+                    class="sha-link"
+                    onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>D4EA40E1EEC463C137E70EE35A27CA22AB508D0516D3267AAA6343D3310A822E</pre></div>'); return false;" 
+                    title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>
+                <a href="downloads/RK-Clean.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>
+
+            <!-- Programm 3 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rkmoti.png" alt="Programm 3">
+                </div>
+                <h2>RK-Moti</h2>
+                <p class="description">Ein Programm, das dir bei jeder Anmeldung einen Spruch anzeigt, um dich zu motivieren.<br>
+                                       ❗ Für den Autostart-Eintrag werden <a href="adminrechte.html" class="admin-link">Adminrechte</a> benötigt.</p>
+                <div class="meta">
+                    System: Windows 7/10/11 | Größe: 1.45 MB | 
+                    <a href="#" 
+                    class="sha-link"
+                    onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>9F5E2E8860AE2C7D07BDCF90330CB98372122CDCE212C1FE244A87FF1976601F</pre></div>'); return false;" 
+                    title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                
+                <a href="downloads/RK-Moti.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>
+
+            <!-- Programm 4 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rkcase.png" alt="Programm 4">
+                </div>
+                <h2>RK-Case</h2>
+                <p class="description">Ein Starterprogramm das sich ganz oben an den Bildschirmrand anheftet und sich automatisch ausblenden kann wenn gewünscht.<br>
+                                       Die einzelnen Cases können ausgeklappt werden und dann kann man per Drag & Drop aus dem Windows-Explorer Dateien, Ordner,
+                                       Dokumente, Anwendungen usw. in die Fächer ziehen. Auch farblich kann es nach eigenen Wünschen gestaltet werden.</p>
+                <div class="meta">
+                    System: Windows 7/10/11 | Größe: 172 KB | 
+                    <a href="#" 
+                    class="sha-link"
+                    onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>611D31D8A505C7B7D119B4D77C9B5AD53FDF240ADD9394ADD56EE3C94999EE80</pre></div>'); return false;" 
+                    title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                                
+                <a href="downloads/RK-Case.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>
+
+            <!-- Programm 5 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rkseek.png" alt="Programm 5">
+                </div>
+                <h2>RK-Seek</h2>
+                <p class="description">Ein Datei Schnellsuchprogramm mit Filter- oder Dateisuche.<br>
+                                       Die gefundenen Dateien können direkt, oder auch nur der Speicherort geöffnet werden.<br>Es lassen sich mehrere Dateien auswählen, 
+                                       die sich dann kopieren, verschieben, löschen oder auch per Email versenden lassen. Wobei das versenden per Email auf das Programm
+                                       Thunderbird-Mail ausgelegt ist.<br>Sollte die Datei ein Bild sein, wird oben rechts eine Vorschau der Bilddatei angezeigt, 
+                                       beim klick auf das Vorschaubild wird es in Originalgröße geöffnet.</p>
+                <div class="meta">
+                    System: Windows 7/10/11 | Größe: 283 KB | 
+                    <a href="#" 
+                    class="sha-link"
+                    onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>DBAFEF8D8B151AE7F48091F0971C090DEB38CAC50A6F25AF5E4C3DDBB36BFA27</pre></div>'); return false;" 
+                    title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                                                
+                <a href="downloads/RK-Seek.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>
+
+            <!-- Programm 6 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rktasks.png" alt="Programm 6">
+                </div>
+                <h2>RK-Tasks</h2>
+                <p class="description">Dieses Tool trägt Tasks in die Aufgabenplanung nach den gewünschten Optionen ein.<br>
+                                       Z. b. können damit Programme eingetragen werden die zu bestimmten Zeiten starten sollen.<br>
+                                       ❗ Für die Tasks eintragen/löschen werden <a href="adminrechte.html" class="admin-link">Adminrechte</a> benötigt.</p>
+                <div class="meta">
+                   System: Windows 7/10/11 | Größe: 277 KB | 
+                   <a href="#" 
+                   class="sha-link"
+                   onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>08DFFEBEE5A12852185FEB634257BAC85031615CA985E38686DBBEC3EACC9282</pre></div>'); return false;" 
+                   title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                                     
+                <a href="downloads/RK-Tasks.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>
+
+           <!-- Programm 7 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rkfinbuch.png" alt="Programm 7">
+                </div>
+                <h2>RK-Finanzbuch</h2>
+                <p class="description">Ein kleines Finanzbuch für den privaten gebrauch.<br>
+                                       Verwaltet Ein- und Ausgaben und zeigt diese in übersichtlichen Tabellen an.
+                                       Automatische Buchungen können erfasst werden und Balkendiagramme zeigen die Auswertung.</p>                
+                <div class="meta">
+                   System: Windows 7/10/11 | Größe: 411 KB | 
+                   <a href="#" 
+                   class="sha-link"
+                   onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>5BB248D1537BBBCEB04012FB8273BC2120839755CD559D1CC3F0EB78C45ECA4B</pre></div>'); return false;" 
+                   title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                                     
+                <a href="downloads/RK-FinanzBuch.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>            
+
+           <!-- Programm 8 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rkfarbtabelle.png" alt="Programm 8">
+                </div>
+                <h2>RK-Farbtabelle</h2>
+                <p class="description">Eine Farbtabelle mit 1255 Farben inkl. Farbvorschau.<br>
+                                       Es zeigt den Namen, RGB-, Long- und HEX-Code an. Wenn man auf einen Code klickt, wird dieser
+                                       in die Zwischenablage gelegt zur weiteren verwendung. Außerdem kann man sich noch eine Favoritenliste anlegen
+                                       und die Listen als PDF speichern oder ausdrucken.</p>                
+                <div class="meta">
+                   System: Windows 7/10/11 | Größe: 68,2 KB | 
+                   <a href="#" 
+                   class="sha-link"
+                   onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>E21504DEEBEA555A4265B1C3AD5CF0CDC0FCE5A2829C1B8D3841F210B0197F5B</pre></div>'); return false;" 
+                   title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                                     
+                <a href="downloads/RK-Farbtabelle.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>            
+
+           <!-- Programm 9 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/rkmenu.png" alt="Programm 9">
+                </div>
+                <h2>RK-Menu</h2>
+                <p class="description">Ein Tool mit dem man das Windows-Kontextmenu (Rechtsklickmenu) selbst gestalten kann.<br>
+                                       Voraussetzung dafür ist in Windows-11 das klassische Menü anzeigen zu lassen, die Option zum Umschalten ist im Programm vorhanden.<br>
+                                       Auf der rechten Seite die Menüs oder auch (Kategorien) anlegen, dann kann man auf der linken Seite für diese Kategorie
+                                       direkt aus dem Explorer per Drag & Drop Dateien, Dokumente, Bilder, Anwendungen usw. oder auch komplette Ordnerverknüpfungen reinziehen.<br>
+                                       Das Programm bleibt dabei immer im vordergrund. Es gibt auch eine Suchenschaltfläche wo sich ein Öffnen-Dialog meldet um von dort aus
+                                       das entsprechende auszusuchen.<br>
+                                       Aus dem Programm heraus kann man Backups erstellen, die auch sauber wieder eingespielt werden können.<br>
+                                       Im Ordner Icon, der nach dem entpacken verfügbar ist befinden sich etliche Icons, die man als Bilder für die erstellten Menü`s verwenden kann.
+                                       Einfach in der rechten Liste mit rechts klicken und den entsprechenden Befehl wählen.</p>                
+                <div class="meta">
+                   System: Windows 7/10/11 | Größe: 483 KB | 
+                   <a href="#" 
+                   class="sha-link"
+                   onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>D8EEDE25FD06A7B72F47112CE3F13CA01F9287360C28E04B4605598649D74CAC</pre></div>'); return false;" 
+                   title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                                     
+                <a href="downloads/RK-Menu.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>          
+            
+           <!-- Programm 10 -->
+            <div class="program-card">
+                <div class="program-image">
+                    <img src="images/fra.png" alt="Programm 10">
+                </div>
+                <h2>Demnächst</h2>
+                <p class="description">Einfach mal wieder vorbeischaun!</p>                
+             <!--   <div class="meta">
+                   System: Windows 7/10/11 | Größe: ? MB | 
+                   <a href="#" 
+                   class="sha-link"
+                   onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>E21504DEEBEA555A4265B1C3AD5CF0CDC0FCE5A2829C1B8D3841F210B0197F5B</pre></div>'); return false;" 
+                   title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
+                </div>                                     
+                <a href="" class="download-btn">Demnächst downloaden</a> -->
+            </div>                        
+            
+        </section>
+
+        <!-- NEU: Der Sicherheits-Kasten direkt darunter -->
+        <section class="security-banner">
+            <h3>🛡️ Wichtiger Hinweis zu Virenscannern & Windows Defender</h3>
+            <p>
+                Da meine Freeware-Programme unabhängig entwickelt werden und neu auf dem Markt sind, besitzen sie kein teures, kommerzielles Zertifikat. 
+                Einige Virenscanner (insbesondere Windows Defender oder der Microsoft SmartScreen-Filter) stufen unbekannte <code>.exe</code>-Dateien daher vorsichtshalber als "Risiko" oder "Fehlalarm" ein.
+            </p>
+            <p>
+                <strong>Ich garantiere:</strong> Alle meine Programme sind zu 100 % virenfrei, werbefrei und enthalten keine versteckte Schadsoftware!
+            </p>
+            <div class="security-action">
+                <span>💡 <strong>Windows blockiert den Start?</strong> Klicke im blauen SmartScreen-Fenster einfach auf den Text <strong>"Weitere Informationen"</strong> und danach auf den Button <strong>"Trotzdem ausführen"</strong>.</span>
+            </div>
+
+            <!-- NEU: Die dezente Trennlinie -->
+            <hr class="banner-divider">
+
+            <!-- NEU: Bereich "Hinweis in eigener Sache" mit Ausrufezeichen -->
+            <div class="own-interest-section">
+            <h3>❗ Hinweis in eigener Sache</h3>
+            <p>
+                Alle meine Programme sind kostenlose Freeware. Sie sind teils so programmiert, dass sich das meiste von selbst erklärt,<br>
+                daher wurde auf aufwendige Hilfedateien verzichtet.<br><br>
+                Da ich dieses Projekt komplett alleine in meiner Freizeit betreibe, <strong>fehlt mir leider die Zeit für einen persönlichen E-Mail-Support</strong>.<br>
+                Bitte hab Verständnis dafür, dass ich nicht jede einzelne Frage beantworten kann.<br><br>
+                Ich helfe gerne weiter, wenn es mir möglich ist – ob die Antwort zeitnah erfolgen wird, kann ich nicht versprechen.<br><br>
+                Viel Spaß beim Testen der Tools!
+            </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Robert Karl > Alle Programme sind Freeware.</p>
+            <div class="footer-links">
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
