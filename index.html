@@ -168,6 +168,40 @@
             color: #2d3748;
         }
 
+        /* ==========================================================
+           KASTEN 2: HINWEIS IN EIGENER SACHE (Dunkelblauer Balken)
+           ========================================================== */
+        .personal-info-banner {
+            background-color: #fff;
+            /* Jetzt mit linkem UND rechtem blauen Balken passend zu deinem Dunkelblau */
+            border-left: 5px solid rgb(56,172,236); 
+            border-right: 5px solid rgb(56,172,236); 
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        .personal-info-banner h4 {
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: #1a3a60;
+            font-size: 1.2rem;
+        }
+
+        .personal-info-banner p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin: 0 0 1rem 0;
+        }
+
+        /* Hebt den letzten Gruß farblich passend hervor */
+        .personal-info-banner .enjoy-text {
+            margin-bottom: 0;
+            font-weight: bold;
+            color: #1a3a60;
+        }
+
         /* Die neue Trennlinie innerhalb des Kastens */
         .banner-divider {
             border: 0;
@@ -578,23 +612,19 @@
             <div class="security-action">
                 <span>💡 <strong>Windows blockiert den Start?</strong> Klicke im blauen SmartScreen-Fenster einfach auf den Text <strong>"Weitere Informationen"</strong> und danach auf den Button <strong>"Trotzdem ausführen"</strong>.</span>
             </div>
-
-            <!-- NEU: Die dezente Trennlinie -->
-            <hr class="banner-divider">
-
-            <!-- NEU: Bereich "Hinweis in eigener Sache" mit Ausrufezeichen -->
-            <div class="own-interest-section">
-            <h3>❗ Hinweis in eigener Sache</h3>
-            <p>
-                Alle meine Programme sind kostenlose Freeware. Sie sind teils so programmiert, dass sich das meiste von selbst erklärt,<br>
-                daher wurde auf aufwendige Hilfedateien verzichtet.<br><br>
-                Da ich dieses Projekt komplett alleine in meiner Freizeit betreibe, <strong>fehlt mir leider die Zeit für einen persönlichen E-Mail-Support</strong>.<br>
-                Bitte hab Verständnis dafür, dass ich nicht jede einzelne Frage beantworten kann.<br><br>
-                Ich helfe gerne weiter, wenn es mir möglich ist – ob die Antwort zeitnah erfolgen wird, kann ich nicht versprechen.<br><br>
-                Viel Spaß beim Testen der Tools!
-            </p>
-            </div>
         </section>
+
+        <!-- KASTEN 2: Inhaltlich und visuell sauber getrennter persönlicher Text -->
+        <div class="personal-info-banner">
+            <h4>ℹ️ Hinweis in eigener Sache</h4>
+            <p>Alle meine Programme sind kostenlose Freeware. Sie sind teils so programmiert, dass sich das meiste von selbst erklärt,<br>
+               daher wurde auf aufwendige Hilfedateien verzichtet.<br><br>
+               Da ich dieses Projekt komplett alleine in meiner Freizeit betreibe, <strong>fehlt mir leider die Zeit für einen persönlichen E-Mail-Support</strong>.<br>
+               Bitte hab Verständnis dafür, dass ich nicht jede einzelne Frage beantworten kann.<br><br>
+               Ich helfe gerne weiter, wenn es mir möglich ist – ob die Antwort zeitnah erfolgen wird, kann ich nicht versprechen.<br>
+            </p>   
+            <p class="enjoy-text">Viel Spaß beim Testen der Tools!</p>
+        </div>
 
     </main>
 
