@@ -366,6 +366,67 @@
             color: rgb(30, 144, 255); /* Hoverfarbe: Dein leuchtendes Wunsch-Blau */
         }
 
+        /* Richtet Bild und Text nebeneinander aus */
+        .card-body {
+            display: flex;
+            gap: 4rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        /* Das Bild nimmt 40% der Breite ein */
+        .card-image-left {
+            flex: 0 0 40%;
+            max-width: 400px;
+        }
+
+        .card-image-left img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            display: block;
+        }
+
+        /* Der Textbereich rechts daneben */
+        .card-text-right {
+            flex: 1;
+            text-align: left;
+        }
+
+        .card-text-right h2 {
+            margin-top: 0;
+            color: #1a3a60;
+        }
+
+        /* NEU: Der maßgeschneiderte Button für die Band (inkl. Hover-Farbwechsel) */
+        .band-btn {
+            display: block;
+            text-align: center;
+            background-color: #1a3a60; /* Dein edles Dunkelblau */
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .band-btn:hover {
+            background-color: rgb(30, 144, 255); /* Wechselt zu deinem Wunsch-Blau bei Hover */
+        }
+
+        /* 📱 Wichtig für Smartphones */
+        @media (max-width: 768px) {
+            .card-body {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .card-image-left {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -580,20 +641,33 @@
                 <a href="downloads/RK-Menu.zip" class="download-btn">Jetzt kostenlos downloaden</a>
             </div>          
             
-           <!-- Programm 10 -->
+          <!-- Programm 10 -->
             <div class="program-card">
                 <div class="program-image">
-                    <img src="images/heimatgfuehl.png" alt="Heimatgfuehl">
+                    <img src="images/rkrrechnung.png" alt="Programm 10">
                 </div>
-                <h2>Heimatg`fühl</h2>
-                <p class="description">Eine besondere Empfehlung für Euer Event!<br><br>
-                                       Hochzeitsband Heimatg'fühl, mehr als nur ein Duo!<br><br>
-                </p>          
+                <h2>RK-Rechnung</h2>
+                <p class="description">Ein Programm zum Rechnung schreiben, mit Kundenverwaltung.<br>
+                                       Evtl. für Kleingewerbe oder dergleichen.<br><br>
+                                       Zusatztool 7-PDF Printer wird für die PDF Optionen benötigt.<br>
+                                       <a href="https://www.7-pdf.de/produkte/pdf-printer" target="_blank">Download 7-PDF Printer</a><br><br>
+                                       Für dieses Programm gibt es eine Bilddokumentation.<br>
+                                       <a href="inforech.html">Zur Dokumentation</a><br><br><br>
+                                       <em>Hinweis:<br>
+                                       Alle mitgelieferten Dateien im Ordner Daten, sind wichtiger<br>
+                                       Bestandteil des Programms.<br>
+                                       Diese sollten nicht entfernt oder gelöscht werden, damit ein<br>
+                                       sinnvolles arbeiten gewährlestet ist.</em>
+                </p>                
                 <div class="meta">
-                   Ob Groß, Klein, Jung oder Alt | Hier wird jeder begeistert | 
+                   System: Windows 7/10/11 | Größe: 612 KB | 
+                   <a href="#" 
+                   class="sha-link"
+                   onclick="var win=window.open(); win.document.write('<div style=\'font-family:sans-serif; max-width:850px; margin:3rem 0 3rem 4rem; padding:0; line-height:1.6; color:#333;\'><h2 style=\'color:#1a3a60; margin-top:0; font-size:1.6rem;\'>🔒 Digitaler Fingerabdruck (SHA-256 Prüfsumme)</h2><p style=\'font-size:1rem;\'>Dieser Code ist der fälschungssichere Fingerabdruck dieser Datei. Er beweist, dass das Programm direkt vom Entwickler kommt und nicht manipuliert wurde.</p><p style=\'font-size:1rem;\'><strong>Kopierbarer Code für Sicherheits-Prüfungen:</strong></p><pre style=\'font-family:monospace; background:#f4f7f6; padding:1.2rem; border-radius:4px; border:1px solid #cbd5e1; font-size:1.1rem; white-space:pre; overflow-x:auto;\'>7E0CA1BD1F6245AFA1F9DECF699900C9711BF43A2C2B0530A1A6EF20616AF3BB</pre></div>'); return false;" 
+                   title="Klicken, um den kopierbaren SHA-256 Code anzuzeigen">SHA-256</a>
                 </div>                                     
-                <a href="https://www.heimatgfuehl-band.de/" target="_blank" rel="noopener" class="download-btn">Überzeug Dich hier</a> 
-            </div>                        
+                <a href="downloads/RK-Rechnung.zip" class="download-btn">Jetzt kostenlos downloaden</a>
+            </div>          
             
         </section>
 
@@ -622,6 +696,34 @@
                Ich helfe gerne weiter, wenn es mir möglich ist – ob die Antwort zeitnah erfolgen wird, kann ich nicht versprechen.<br>
             </p>   
             <p class="enjoy-text">Viel Spaß beim Testen der Tools!</p>
+        </div>
+
+        <br>
+
+        <div class="personal-info-banner">
+            <h3>‼️ Zum Schluss noch ein Leckerbissen ‼️</h3>
+            
+            <div class="card-body">
+                <!-- Linke Seite: Das Bild -->
+                <div class="card-image-left">
+                    <img src="images/heimatgfuehl.png" alt="Die Band Heimatg'fühl">
+                </div>
+                
+                <!-- Rechte Seite: Der Text -->
+                <div class="card-text-right">
+                    <h2>Die Band Heimatg`fühl</h2>
+                    <p>
+                      <strong>
+                        besondere Empfehlung für Euer Event !<br>
+                        Hochzeitsband Heimatg'fühl, mehr als nur ein Duo !<br>
+                        Ob Groß, Klein, Jung oder Alt, hier wird jeder begeistert.
+                      </strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- KORREKTUR: Button mit echtem Link, neuem Tab (target="_blank") und der neuen Design-Klasse -->
+            <a href="https://www.heimatgfuehl-band.de" target="_blank" class="band-btn">Überzeug Dich hier</a>
         </div>
 
     </main>
