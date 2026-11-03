@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontaktformular | RK-Freeware</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #e2e8f0; /* Dein schönes Hintergrundgrau */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            flex: 1; 
+            box-sizing: border-box;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a3a60 0%, rgb(30, 144, 255) 100%);
+            color: #fff;
+            padding: 1.5rem 0;
+            width: 100%;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        header h1 {
+            margin: 0 0 0.2rem 0;
+            font-size: 1.8rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #d1dbe5;
+            margin-top: 0.4rem;
+            font-weight: 300;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: #1a3a60;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Formular-Styling */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #1a3a60;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: rgb(30, 144, 255);
+            background-color: #fff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Dein bekannter Button-Look */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background-color: #1a3a60;
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: rgb(30, 144, 255);
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            margin-top: auto; 
+            padding: 1rem 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-content p {
+            margin: 0;
+        }
+
+        .footer-links a {
+            color: #ccc; 
+            text-decoration: none;
+            margin-left: 2rem;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="images/rklogo.gif" alt="Logo">
+            </div>
+            <div class="header-text">
+                <h1>RK - Freeware</h1>
+                <p>Kontaktformular</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <a href="index.html" class="back-btn">&larr; Zurück zur Startseite</a>
+
+        <h2>✉️ Nachricht senden</h2>
+        <p>Hast du Fragen, Lob oder einen Fehler in einem Tool gefunden? Schreib mir einfach eine Nachricht über dieses Formular.</p>
+        
+        <!-- Das eigentliche Formular (Dienst wird in Schritt 2 verknüpft) -->
+        <form action="https://web3forms.com" method="POST">
+    
+        <!-- 2. NEU: Füge diese Zeile direkt als ERSTES unter dem <form>-Start ein: -->
+        <input type="hidden" name="access_key" value="f6f41919-f15a-46be-bdf5-0883ba3ba5bd">
+            
+            <div class="form-group">
+                <label for="name">Dein Name / Pseudonym:</label>
+                <input type="text" id="name" name="name" required placeholder="z. B. Max Mustermann">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Deine E-Mail-Adresse (für die Antwort):</label>
+                <input type="email" id="email" name="_replyto" required placeholder="name@beispiel.de">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Deine Nachricht:</label>
+                <textarea id="message" name="message" required placeholder="Schreib hier deine Nachricht hinein..."></textarea>
+            </div>
+
+            <!-- Spam-Schutz (für Bots unsichtbar, wehrt automatischen Spam ab) -->
+            <input type="text" name="_gotcha" style="display:none">
+
+            <button type="submit" class="submit-btn">Nachricht absenden</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 RK - Freeware. Alle Programme sind Freeware.</p>
+            <div class="footer-links">
+                <a href="index.html">Startseite</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
